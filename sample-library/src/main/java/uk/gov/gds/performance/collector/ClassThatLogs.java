@@ -2,14 +2,14 @@ package uk.gov.gds.performance.collector;
 
 import com.equalexperts.logging.OpsLogger;
 
-import static uk.gov.gds.performance.collector.CollectorLogMessage.SUCCESS;
-import static uk.gov.gds.performance.collector.CollectorLogMessage.UNKNOWN_ERROR;
+import static uk.gov.gds.performance.collector.CollectorLogMessages.SUCCESS;
+import static uk.gov.gds.performance.collector.CollectorLogMessages.UNKNOWN_ERROR;
 
 public class ClassThatLogs {
-    private final OpsLogger<CollectorLogMessage> logger;
+    private final OpsLogger<CollectorLogMessages> logger;
 
     @javax.inject.Inject
-    public ClassThatLogs(OpsLogger<CollectorLogMessage> logger) {
+    public ClassThatLogs(OpsLogger<CollectorLogMessages> logger) {
         this.logger = logger;
     }
 

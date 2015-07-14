@@ -2,7 +2,7 @@ package uk.gov.gds.performance.collector;
 
 import com.equalexperts.logging.LogMessage;
 
-public enum CollectorLogMessage implements LogMessage {
+public enum CollectorLogMessages implements LogMessage {
     SUCCESS("GDS-000000", "Successfully published %d records"),
     UNKNOWN_ERROR("GDS-000001", "An unknown error occurred:"),
     COULD_NOT_CONNECT_TO_PERFORMANCE_PLATFORM("GDS-000002", "Could not connect to the performance platform %s"),
@@ -17,7 +17,7 @@ public enum CollectorLogMessage implements LogMessage {
     private final String messageCode;
     private final String messagePattern;
 
-    CollectorLogMessage(String messageCode, String messagePattern) {
+    CollectorLogMessages(String messageCode, String messagePattern) {
         this.messageCode = messageCode;
         this.messagePattern = messagePattern;
     }
