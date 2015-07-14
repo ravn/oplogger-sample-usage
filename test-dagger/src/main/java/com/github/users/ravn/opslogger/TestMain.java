@@ -14,8 +14,9 @@ public class TestMain {
 
     public static void main(String... args) {
 
-        ClassThatLogs classThatLogs = DaggerTestMain_ClassThatLogsMaker.builder().build().maker();
-        classThatLogs.logSuccess();
+        ClassThatLogsMaker maker = DaggerTestMain_ClassThatLogsMaker.builder().build();
+        maker.maker().logSuccess();
+        maker.maker().logException();
         System.exit(1);
     }
 }
