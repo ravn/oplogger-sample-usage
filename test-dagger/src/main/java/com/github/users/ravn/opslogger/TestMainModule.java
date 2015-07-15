@@ -6,23 +6,39 @@ import com.equalexperts.logging.OpsLoggerFactory;
 import dagger.Module;
 import dagger.Provides;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Module
 public class TestMainModule {
-    static AtomicLong invocations = new AtomicLong();
+
+    public static final String CLASS_TYPE = "ClassType";
+
+    private final Map<String, String> configurationMap;
+
+    public TestMainModule(Map<String, String> configurationMap) {
+        this.configurationMap = Collections.unmodifiableMap(configurationMap);
+    }
+
+
     @Provides
     @Singleton
     OpsLogger<uk.gov.gds.performance.collector.CollectorLogMessages> provideOpsLogger() {
-        System.out.println(">>> provideOpsLogger() <<<");
-        if (invocations.incrementAndGet() != 1) {
-            System.out.println("Invocated more than once");
-        }
         return new OpsLoggerFactory()
                 .setDestination(System.out)
                 .setStackTraceStoragePath(Paths.get("/tmp/stacktraces"))
                 .build();
+    }
+
+    /**
+     * Get class type to provide application name in log line.
+     * @return
+     */
+    @Provides @Named(CLASS_TYPE) String provideClassType() {
+        return configurationMap.get(CLASS_TYPE);
     }
 }

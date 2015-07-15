@@ -3,7 +3,7 @@ package uk.gov.gds.performance.collector;
 import com.equalexperts.logging.LogMessage;
 
 public enum CollectorLogMessages implements LogMessage {
-    SUCCESS("GDS-000000", "Successfully published %d records"),
+    SUCCESS("GDS-000000", "%s: Successfully published %d records"),
     UNKNOWN_ERROR("GDS-000001", "An unknown error occurred:"),
     COULD_NOT_CONNECT_TO_PERFORMANCE_PLATFORM("GDS-000002", "Could not connect to the performance platform %s"),
     PERFORMANCE_PLATFORM_TEST_QUERY_FAILED("GDS-000003", "Test query to the performance platform %s failed with response code %d"),
